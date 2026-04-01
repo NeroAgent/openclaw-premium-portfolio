@@ -1,0 +1,18 @@
+{
+  "name": "claw-code",
+  "description": "Claude Code clean-room Rust rewrite (instructkr/claw-code). Terminal AI coding agent with tool system, multi-agent orchestration, slash commands, persistent memory. Requires cargo build --release -p claw-cli.",
+  "version": "0.1.0",
+  "type": "coding",
+  "binary": "claw",
+  "wrapper": "scripts/run.py",
+  "install": {
+    "method": "cargo",
+    "package": "claw-cli",
+    "check": "test -x /root/.openclaw/workspace/external/claude-code/rust/target/release/claw"
+  },
+  "auth": {
+    "required": true,
+    "type": "provider_api_key",
+    "env_vars": ["OPENAI_API_KEY", "ANTHROPIC_API_KEY", "OLLAMA_HOST"]
+  }
+}

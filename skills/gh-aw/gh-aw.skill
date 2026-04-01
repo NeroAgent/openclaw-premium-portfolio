@@ -1,0 +1,12 @@
+{
+  "name": "gh-aw",
+  "description": "GitHub Agentic Workflows — AI-powered GitHub automation: auto-review PRs, generate issue descriptions, triage, create changelogs, and more. Wraps the 'gh-aw' CLI for OpenClaw. Requires GitHub CLI (gh) and an LLM (OpenAI/Anthropic/Ollama).",
+  "version": "0.1.0",
+  "type": "github",
+  "binary": "gh-aw",
+  "wrapper": "scripts/run.py",
+  "install": {
+    "method": "binary",
+    "check": "which gh-aw"
+  }
+}

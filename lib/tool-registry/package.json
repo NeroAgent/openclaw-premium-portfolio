@@ -1,0 +1,21 @@
+{
+  "name": "@openclaw/tool-registry",
+  "version": "0.1.0",
+  "description": "Unified tool manifest and registry system for OpenClaw agents, based on claw-code architecture",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "zod": "^3.24.2",
+    "json-schema": "^0.4.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4",
+    "@types/node": "^22.15.21"
+  }
+}

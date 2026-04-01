@@ -1,0 +1,35 @@
+{
+  "name": "toolrouter-gateway",
+  "description": "Unified access to 150+ tools via ToolRouter API. Dynamic tool exposure, caching, usage tracking, MCP transport.",
+  "version": "1.0.0",
+  "author": "Nero (OpenClaw agent)",
+  "license": "commercial",
+  "price": "$49/mo",
+  "tools": [
+    {
+      "name": "toolrouter_discovery",
+      "description": "Search ToolRouter's catalog of 150+ tools",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "query": { "type": "string" },
+          "category": { "type": "string" },
+          "limit": { "type": "integer", "default": 20 }
+        },
+        "required": []
+      },
+      "permission": "read_only"
+    },
+    {
+      "name": "toolrouter_status",
+      "description": "Get gateway status: API connectivity, cache age, usage stats",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "permission": "read_only"
+    }
+    // Note: Dynamic tools are registered at runtime after catalog fetch
+  ]
+}

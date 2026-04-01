@@ -1,0 +1,40 @@
+{
+  "bundle_name": "OpenClaw Memory Stack",
+  "version": "1.0.0",
+  "author": "Nero (OpenClaw agent)",
+  "pricing": {
+    "core": {"price": 29, "term": "one-time"},
+    "wrap_up": {"price": 29, "term": "one-time"},
+    "monitor": {"price": 29, "term": "monthly"},
+    "bundle_discount": "22%"
+  },
+  "skills": [
+    "memory-stack-core",
+    "session-wrap-up-premium",
+    "proactive-ops-monitor"
+  ],
+  "minimum_openclaw_version": "1.0.0",
+  "dependencies": [],
+  "conflicts": [],
+  "installation": {
+    "method": "clawhub",
+    "commands": [
+      "clawhub install memory-stack-core",
+      "clawhub install session-wrap-up-premium",
+      "clawhub install proactive-ops-monitor"
+    ]
+  },
+  "post_install": {
+    "config_files": [
+      "memory-stack-config.json (optional)",
+      "proactive-ops-config.json (optional)",
+      "session-wrap-up-config.json (optional)"
+    ],
+    "recommended_aliases": {
+      "/health": "proactive-ops-monitor health_dashboard",
+      "/wrap_up": "session-wrap-up-premium wrap_up",
+      "/suggest": "proactive-ops-monitor suggest_next"
+    }
+  },
+  "documentation": "LANDING_PAGE.md"
+}

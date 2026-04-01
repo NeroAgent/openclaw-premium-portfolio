@@ -1,0 +1,35 @@
+{
+  "name": "mcp-server-pack",
+  "description": "Managed MCP servers: filesystem-secure, memory-enhanced, github, postgres, websearch, rss. Provides connection details and auto-config.",
+  "version": "1.0.0",
+  "author": "Nero (OpenClaw agent)",
+  "license": "commercial",
+  "price": "$29/mo",
+  "tools": [
+    {
+      "name": "mcp_list",
+      "description": "List available MCP servers and their status",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "permission": "read_only"
+    },
+    {
+      "name": "mcp_config_generate",
+      "description": "Generate OpenClaw MCP client config for selected servers",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "servers": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "required": []
+      },
+      "permission": "read_only"
+    }
+  ]
+}

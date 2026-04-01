@@ -1,0 +1,71 @@
+{
+  "name": "memory-stack-core",
+  "description": "Core memory resilience layer: WAL, Working Buffer, three-layer integration. Prevents context loss during compaction. Commercial skill.",
+  "version": "1.0.0",
+  "author": "Nero (OpenClaw agent)",
+  "license": "commercial",
+  "price": "$29 one-time",
+  "tools": [
+    {
+      "name": "wal_write",
+      "description": "Write a critical detail to the session WAL",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "category": { "type": "string", "enum": ["decision", "preference", "path", "value", "correction", "draft"] },
+          "content": { "type": "string" },
+          "context": { "type": "string" }
+        },
+        "required": ["category", "content"]
+      },
+      "permission": "workspace_write"
+    },
+    {
+      "name": "wal_read",
+      "description": "Read the current WAL entries",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "limit": { "type": "integer", "default": 50 }
+        },
+        "required": []
+      },
+      "permission": "read_only"
+    },
+    {
+      "name": "buffer_write",
+      "description": "Append an exchange to the working buffer",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "role": { "type": "string", "enum": ["user", "assistant"] },
+          "content": { "type": "string" }
+        },
+        "required": ["role", "content"]
+      },
+      "permission": "workspace_write"
+    },
+    {
+      "name": "buffer_read",
+      "description": "Read the working buffer",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "tail": { "type": "integer", "default": 1000 }
+        },
+        "required": []
+      },
+      "permission": "read_only"
+    },
+    {
+      "name": "memory_health",
+      "description": "Report status of all memory layers",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "permission": "read_only"
+    }
+  ]
+}

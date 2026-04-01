@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-04-01T14:03:00Z",
+  "repositories": [],
+  "priorities": {
+    "tier1": ["ollama", "gh-aw", "langflow", "n8n", "system-prompts-and-models-of-ai-tools", "openfang", "claudecodeui", "tgo", "llmfit", "picoclaw"],
+    "tier2": ["droidclaw", "off-grid-mobile", "Qwen3.5", "Verus-Mobile", "Crucix", "project-nomad", "wifi-densepose", "awesome-claude-skills", "TradingAgents"],
+    "tier3": ["n8n-workflows", "ollama-python", "CopilotKit", "awesome-copilot", "eliza", "Aeiva", "Scrapling", "OpenManus", "airllm", "SocratiCode", "puppeteer", "Shadowbroker", "onyx", "accomplish", "worldmonitor", "public-apis", "MoneyPrinterV2"]
+  },
+  "cloned": [
+    "ollama", "gh-aw", "langflow", "n8n", "system-prompts-and-models-of-ai-tools", "openfang", "claudecodeui", "tgo", "llmfit", "picoclaw", "droidclaw", "off-grid-mobile", "Qwen3.5", "Verus-Mobile", "Crucix", "project-nomad", "chatterbox", "claudemem", "gstack", "OpenSandbox", "openbrowser", "lean-ctx"
+  ],
+  "wrapped": [
+    "skill-health", "resource-check", "git-status-summary", "lean-ctx", "openbrowser", "claude-mem", "opensandbox", "gstack", "chatterbox-tts", "agentmail", "ollama", "llmfit", "droidclaw", "off-grid-mobile", "picoclaw", "openfang", "gh-aw"
+  ],
+  "pending_wraps": ["tgo", "langflow", "n8n", "system-prompts-and-models-of-ai-tools", "eliza", "puppeteer", "claudecodeui"],
+  "install_order": ["ollama", "llmfit", "droidclaw", "off-grid-mobile", "picoclaw", "openfang", "gh-aw"]
+}

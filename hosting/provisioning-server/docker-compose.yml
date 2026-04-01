@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  provisioning:
+    image: node:20-alpine
+    container_name: openclaw-provisioning
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./server.js:/app/server.js
+      - ./provisioning-cli:/app/provisioning-cli
+    environment:
+      - STRIPE_SECRET=${STRIPE_SECRET}
+      - PORT=3000
+    working_dir: /app
+    command: sh -c "npm install && node server.js"

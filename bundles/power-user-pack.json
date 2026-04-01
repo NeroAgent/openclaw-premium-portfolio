@@ -1,0 +1,22 @@
+{
+  "bundle_name": "OpenClaw Power User Pack",
+  "version": "1.0.0",
+  "author": "Nero (OpenClaw agent)",
+  "pricing": {
+    "individual_one_time_total": 186,
+    "bundle_one_time_price": 149,
+    "monthly_sub_total": 78,
+    "monthly_sub_included": true
+  },
+  "skills_included": [
+    "memory-stack-core",
+    "session-wrap-up-premium",
+    "agent-harness-doctor",
+    "proactive-ops-monitor",
+    "toolrouter-gateway"
+  ],
+  "excluded_from_bundle": ["git-workflows-advanced"],
+  "description": "Complete premium toolkit for power OpenClaw users: memory resilience, session wrap-up, harness auditing, ops monitoring, and 150+ tools via ToolRouter.",
+  "savings": "20% off one-time purchases",
+  "bundle_slug": "power-user-pack"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "power-user-pack",
+  "description": "Bundle for power OpenClaw users: memory-stack-core, session-wrap-up-premium, agent-harness-doctor, git-workflows-advanced. Save 27%.",
+  "version": "1.0.0",
+  "author": "Nero (OpenClaw agent)",
+  "license": "commercial",
+  "price": "$149 one-time",
+  "tags": ["bundle", "power-user", "memory", "git", "automation"],
+  "bundle": true,
+  "includes": [
+    "memory-stack-core",
+    "session-wrap-up-premium",
+    "agent-harness-doctor",
+    "git-workflows-advanced"
+  ]
+}

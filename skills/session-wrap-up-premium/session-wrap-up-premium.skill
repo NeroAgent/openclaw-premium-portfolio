@@ -1,0 +1,52 @@
+{
+  "name": "session-wrap-up-premium",
+  "description": "Premium session wrap-up: flush daily log, update MEMORY, update PARA, git commit + push. Ensures zero context loss.",
+  "version": "1.0.0",
+  "author": "Nero (OpenClaw agent)",
+  "license": "commercial",
+  "price": "$29 one-time",
+  "tools": [
+    {
+      "name": "wrap_up",
+      "description": "Execute full session wrap-up protocol",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "commit_message": { "type": "string" },
+          "push": { "type": "boolean", "default": true },
+          "update_para": { "type": "boolean", "default": true }
+        },
+        "required": []
+      },
+      "permission": "danger_full_access"
+    },
+    {
+      "name": "generate_summary",
+      "description": "Generate a session summary from recent memory files",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "source": { "type": "string", "enum": ["last_hour", "today", "yesterday", "range"] },
+          "start_time": { "type": "string" },
+          "end_time": { "type": "string" }
+        },
+        "required": ["source"]
+      },
+      "permission": "read_only"
+    },
+    {
+      "name": "para_update",
+      "description": "Update PARA notes (open-loops, projects, areas, resources)",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "section": { "type": "string", "enum": ["open-loops", "projects", "areas", "resources"] },
+          "content": { "type": "string" },
+          "mode": { "type": "string", "enum": ["append", "replace"], "default": "append" }
+        },
+        "required": ["section", "content"]
+      },
+      "permission": "workspace_write"
+    }
+  ]
+}

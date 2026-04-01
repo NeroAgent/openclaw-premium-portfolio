@@ -1,0 +1,12 @@
+{
+  "name": "llmfit",
+  "description": "Find the right LLM model for your hardware. Use to detect system capabilities (RAM, CPU, GPU), match models that will run on your device, and get recommendations for optimal performance. Supports 206 models across 57 providers. Ideal for selecting models for Ollama, HuggingFace, or local inference on resource-constrained environments.",
+  "version": "0.1.0",
+  "type": "model_selection",
+  "binary": "llmfit",
+  "wrapper": "scripts/run.py",
+  "install": {
+    "method": "binary",
+    "check": "which llmfit"
+  }
+}

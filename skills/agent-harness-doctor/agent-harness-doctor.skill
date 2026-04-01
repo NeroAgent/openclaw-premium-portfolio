@@ -1,0 +1,37 @@
+{
+  "name": "agent-harness-doctor",
+  "description": "Automated audit and fix for OpenClaw agent harnesses. Diagnoses 8 dimensions, generates plan, auto-applies P0 fixes.",
+  "version": "1.0.0",
+  "author": "Nero (OpenClaw agent)",
+  "license": "commercial",
+  "price": "$99 one-time",
+  "tools": [
+    {
+      "name": "harness_check",
+      "description": "Run full diagnostic on current agent harness",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "fix_apply": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "required": []
+      },
+      "permission": "read_only"
+    },
+    {
+      "name": "apply_fix",
+      "description": "Apply a specific fix (P0 only)",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "fix_id": { "type": "string" }
+        },
+        "required": ["fix_id"]
+      },
+      "permission": "danger_full_access"
+    }
+  ]
+}

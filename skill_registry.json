@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "description": "OpenClaw Skill Registry - tracks all installed and pending skills",
+  "skills": {
+    "skill-health": {"installed": true, "path": "/usr/local/lib/node_modules/openclaw/skills/skill-health", "health": 99, "type": "meta"},
+    "resource-check": {"installed": true, "path": "/usr/local/lib/node_modules/openclaw/skills/resource-check", "health": 98, "type": "monitoring"},
+    "git-status-summary": {"installed": true, "path": "/usr/local/lib/node_modules/openclaw/skills/git-status-summary", "health": 98, "type": "vcs"},
+    "lean-ctx": {"installed": true, "path": "/usr/local/lib/node_modules/openclaw/skills/lean-ctx", "health": 100, "binary_installed": true, "type": "optimization"},
+    "openbrowser": {"installed": true, "path": "/usr/local/lib/node_modules/openclaw/skills/openbrowser", "health": 100, "type": "web"},
+    "claude-mem": {"installed": true, "path": "/usr/local/lib/node_modules/openclaw/skills/claude-mem", "health": 99, "type": "memory"},
+    "opensandbox": {"installed": true, "path": "/usr/local/lib/node_modules/openclaw/skills/opensandbox", "health": 100, "type": "sandbox"},
+    "gstack": {"installed": true, "path": "/usr/local/lib/node_modules/openclaw/skills/gstack", "health": 99, "type": "reference"},
+    "chatterbox-tts": {"installed": true, "path": "/usr/local/lib/node_modules/openclaw/skills/chatterbox-tts", "health": 99, "type": "tts"},
+    "agentmail": {"installed": true, "path": "/usr/local/lib/node_modules/openclaw/skills/agentmail", "health": 99, "type": "communication"},
+    "qwen-code": {"installed": true, "path": "/root/.openclaw/workspace/skills/qwen-code", "health": 100, "type": "coding", "binary_installed": true},
+    "claw-code": {"installed": true, "path": "/root/.openclaw/workspace/skills/claw-code", "health": 100, "binary_built": true, "type": "coding"},
+    "ollama": {"installed": true, "path": "/root/.openclaw/workspace/skills/ollama", "health": 100, "type": "llm_serving", "note": "binary pending external build"},
+    "gh-aw": {"installed": true, "path": "/root/.openclaw/workspace/skills/gh-aw", "health": 100, "type": "github_automation", "note": "binary pending external build (Go segfault in PRoot)"},
+    "llmfit": {"installed": true, "path": "/root/.openclaw/workspace/skills/llmfit", "health": 100, "type": "model_discovery", "note": "binary pending external build (Rust segfault in PRoot)"},
+    "picoclaw": {"installed": true, "path": "/root/.openclaw/workspace/skills/picoclaw", "health": 100, "type": "agent", "note": "binary pending external build (Go segfault in PRoot)"},
+    "openfang": {"installed": true, "path": "/root/.openclaw/workspace/skills/openfang", "health": 100, "type": "agent_os", "note": "binary pending external build (Rust)"},
+    "demo-tool": {"installed": true, "path": "/root/.openclaw/workspace/skills/demo-tool", "health": 100, "type": "demo"},
+    "file-reader": {"installed": true, "path": "/root/.openclaw/workspace/skills/file-reader", "health": 100, "type": "demo", "manifest_pattern": true},
+    "memory-stack-core": {"installed": true, "path": "/root/.openclaw/workspace/skills/memory-stack-core", "health": 100, "type": "premium", "price": "$29 one-time", "tools": ["wal_write", "wal_read", "buffer_write", "buffer_read", "memory_health"], "published": true, "clawhub_slug": "memory-stack-core"},
+    "session-wrap-up-premium": {"installed": true, "path": "/root/.openclaw/workspace/skills/session-wrap-up-premium", "health": 100, "type": "premium", "price": "$29 one-time", "tools": ["wrap_up", "generate_summary", "para_update"], "published": true, "clawhub_slug": "session-wrap-up-premium"},
+    "proactive-ops-monitor": {"installed": true, "path": "/root/.openclaw/workspace/skills/proactive-ops-monitor", "health": 100, "type": "premium", "price": "$29/mo", "tools": ["health_dashboard", "token_utilization", "suggest_next", "alert_config"], "published": false, "clawhub_slug": "proactive-ops-monitor"},
+    "git-workflows-pro": {"installed": true, "path": "/root/.openclaw/workspace/skills/git-workflows-pro", "health": 100, "type": "premium", "price": "$49 one-time", "tools": ["git_rebase_interactive", "git_worktree_add", "git_reflog_recover", "git_subtree_add", "git_pr_create", "git_changelog_generate"], "published": false, "clawhub_slug": "git-workflows-pro"},
+    "agent-harness-doctor": {"installed": true, "path": "/root/.openclaw/workspace/skills/agent-harness-doctor", "health": 100, "type": "premium", "price": "$99 one-time", "tools": ["harness_check", "apply_fix"], "published": false, "clawhub_slug": "agent-harness-doctor"},
+    "toolrouter-gateway": {"installed": true, "path": "/root/.openclaw/workspace/skills/toolrouter-gateway", "health": 100, "type": "premium", "price": "$49/mo", "tools": ["toolrouter_discovery", "toolrouter_status", "toolrouter_proxy"], "published": false, "clawhub_slug": "toolrouter-gateway"}
+  "external_repos": {
+    "lean-ctx": {"cloned": true, "path": "/root/.openclaw/workspace/external/lean-ctx", "binary_installed": true},
+    "gstack": {"cloned": true, "path": "/root/.openclaw/workspace/external/gstack"},
+    "OpenSandbox": {"cloned": true, "path": "/root/.openclaw/workspace/external/OpenSandbox"},
+    "openbrowser": {"cloned": true, "path": "/root/.openclaw/workspace/external/openbrowser"},
+    "claude-mem": {"cloned": true, "path": "/root/.openclaw/workspace/external/claude-mem"},
+    "chatterbox": {"cloned": true, "path": "/root/.openclaw/workspace/external/chatterbox"},
+    "qwen-code": {"cloned": true, "path": "/root/.openclaw/workspace/external/qwen-code", "installed_via_npm": true},
+    "claude-code": {"cloned": true, "path": "/root/.openclaw/workspace/external/claude-code", "note": "clean-room rewrite, research purposes"}
+  },
+  "pending_wraps": [],
+  "bundles": {
+    "power-user-pack": {"published": true, "slug": "power-user-pack", "price": "$149 one-time", "includes": ["memory-stack-core", "session-wrap-up-premium", "agent-harness-doctor", "git-workflows-advanced"]}
+  }
+}

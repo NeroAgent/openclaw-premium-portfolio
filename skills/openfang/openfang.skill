@@ -1,0 +1,12 @@
+{
+  "name": "openfang",
+  "description": "Agent Operating System — run autonomous 'Hands' that work for you 24/7. Use to schedule, monitor, and control OpenFang agents: research, knowledge graphs, social media management, lead generation, reporting. Provides a single binary (~32MB) that compiles to a full agent runtime. Requires Rust toolchain to build, or download prebuilt. OpenFang runs headless with dashboard at localhost:4200.",
+  "version": "0.1.0",
+  "type": "agent_os",
+  "binary": "openfang",
+  "wrapper": "scripts/run.py",
+  "install": {
+    "method": "binary",
+    "check": "which openfang"
+  }
+}

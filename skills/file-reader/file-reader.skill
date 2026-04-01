@@ -1,0 +1,21 @@
+{
+  "name": "file-reader",
+  "description": "Read file contents with optional line limiting. Demonstrates ToolRegistry manifest pattern.",
+  "version": "0.1.0",
+  "tools": [
+    {
+      "name": "read_file",
+      "description": "Read a text file from the workspace",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "path": { "type": "string" },
+          "offset": { "type": "integer", "minimum": 0 },
+          "limit": { "type": "integer", "minimum": 1 }
+        },
+        "required": ["path"]
+      },
+      "permission": "read_only"
+    }
+  ]
+}

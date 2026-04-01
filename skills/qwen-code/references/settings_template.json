@@ -1,0 +1,43 @@
+{
+  "modelProviders": {
+    "openai": [
+      {
+        "provider": "openai",
+        "apiKey": "",
+        "models": ["gpt-4o", "gpt-4-turbo"]
+      }
+    ],
+    "anthropic": [
+      {
+        "provider": "anthropic",
+        "apiKey": "",
+        "models": ["claude-3-5-sonnet-20241022"]
+      }
+    ],
+    "qwen": [
+      {
+        "provider": "qwen",
+        "auth": {
+          "type": "oauth"
+        },
+        "models": ["qwen3-5-plus", "qwen3-coder-32b"]
+      }
+    ],
+    "ollama": [
+      {
+        "provider": "ollama",
+        "host": "http://localhost:11434",
+        "models": ["llama3:8b", "codellama:7b"]
+      }
+    ]
+  },
+  "defaultProvider": "ollama",
+  "defaultModel": "llama3:8b",
+  "telemetry": false,
+  "sandbox": {
+    "enabled": true
+  },
+  "mcp": {
+    "servers": {}
+  }
+}

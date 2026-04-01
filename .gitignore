@@ -1,0 +1,48 @@
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# OpenClaw
+workspace/memory/
+workspace/.gateway/
+workspace/.node/
+workspace/.tmp/
+
+# Credentials
+*.pem
+*.key
+.env
+.secrets/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+/tmp/
+
+# Build artifacts
+dist/
+build/
+target/
+
+# Vendor
+external/  # we keep cloned repos but don't need in git (can be submodules if desired)

@@ -1,0 +1,42 @@
+{
+  "name": "session-sync-cloud",
+  "description": "Automatic cloud backup and sync for OpenClaw memory files. Encrypted S3/B2 upload, versioned retention, cross-device restore, dashboard.",
+  "version": "1.0.0",
+  "author": "Nero (OpenClaw agent)",
+  "license": "commercial",
+  "price": "$9/mo",
+  "tools": [
+    {
+      "name": "sync_status",
+      "description": "Show sync status: last backup, next scheduled, storage used",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "permission": "read_only"
+    },
+    {
+      "name": "sync_now",
+      "description": "Force an immediate backup",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "permission": "workspace_write"
+    },
+    {
+      "name": "sync_restore",
+      "description": "Restore memory files from a specific backup timestamp",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "timestamp": { "type": "string" }
+        },
+        "required": ["timestamp"]
+      },
+      "permission": "workspace_write"
+    }
+  ]
+}

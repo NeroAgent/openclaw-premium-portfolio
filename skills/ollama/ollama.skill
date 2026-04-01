@@ -1,0 +1,12 @@
+{
+  "name": "ollama",
+  "description": "Run and manage local LLMs via Ollama. Use to serve open-source models (Llama, Qwen, Mistral, etc.), generate completions, create embeddings, and manage model lifecycles. Integrates with OpenClaw for on-device AI inference without cloud dependencies. Requires 'ollama' binary in PATH.",
+  "version": "0.1.0",
+  "type": "llm_servicing",
+  "binary": "ollama",
+  "wrapper": "scripts/run.py",
+  "install": {
+    "method": "binary",
+    "check": "which ollama"
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "name": "git-workflows-pro",
+  "description": "Advanced Git operations: interactive rebase, worktree, reflog recovery, subtree, PR creation with human intent, changelog generation.",
+  "version": "1.0.0",
+  "author": "Nero (OpenClaw agent)",
+  "license": "commercial",
+  "price": "$49 one-time",
+  "clawhub_slug": "git-workflows-advanced"
+  "tools": [
+    {
+      "name": "git_rebase_interactive",
+      "description": "Start an interactive rebase with optional autosquash. Returns todo list and instructions.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "base": { "type": "string" },
+          "autosquash": { "type": "boolean", "default": false }
+        },
+        "required": ["base"]
+      },
+      "permission": "danger_full_access"
+    },
+    {
+      "name": "git_worktree_add",
+      "description": "Add a new worktree for parallel development",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "branch": { "type": "string" },
+          "path": { "type": "string" }
+        },
+        "required": ["branch", "path"]
+      },
+      "permission": "workspace_write"
+    },
+    {
+      "name": "git_reflog_recover",
+      "description": "Recover lost commits using reflog (list or restore)",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "action": { "type": "string", "enum": ["list", "restore"] },
+          "commit_hash": { "type": "string" },
+          "target_branch": { "type": "string" }
+        },
+        "required": ["action"]
+      },
+      "permission": "danger_full_access"
+    },
+    {
+      "name": "git_subtree_add",
+      "description": "Add a subtree from another repository",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "repo_url": { "type": "string" },
+          "prefix": { "type": "string" },
+          "branch": { "type": "string", "default": "main" }
+        },
+        "required": ["repo_url", "prefix"]
+      },
+      "permission": "danger_full_access"
+    },
+    {
+      "name": "git_pr_create",
+      "description": "Create a pull request with human-written title and body (required)",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "body": { "type": "string" },
+          "head": { "type": "string" },
+          "base": { "type": "string", "default": "main" },
+          "draft": { "type": "boolean", "default": false }
+        },
+        "required": ["title", "body", "head"]
+      },
+      "permission": "danger_full_access"
+    },
+    {
+      "name": "git_changelog_generate",
+      "description": "Generate a changelog from commits between tags",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "from_tag": { "type": "string" },
+          "to_tag": { "type": "string" },
+          "output_format": { "type": "string", "enum": ["markdown", "json"], "default": "markdown" }
+        },
+        "required": []
+      },
+      "permission": "read_only"
+    }
+  ]
+}

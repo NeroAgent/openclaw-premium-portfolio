@@ -1,0 +1,202 @@
+{
+  "scan_ts": 1775058432.3716938,
+  "summary": {
+    "total": 24,
+    "wrapped": 16,
+    "unwrapped": 8
+  },
+  "repos": [
+    {
+      "repo": "Qwen3.5",
+      "wrapped": false,
+      "skill_name": null,
+      "language": "go",
+      "binary_type": "binary",
+      "score": 70
+    },
+    {
+      "repo": "claude-code",
+      "wrapped": false,
+      "skill_name": null,
+      "language": "rust",
+      "binary_type": "binary",
+      "score": 65
+    },
+    {
+      "repo": "Verus-Mobile",
+      "wrapped": false,
+      "skill_name": null,
+      "language": "node",
+      "binary_type": "binary",
+      "score": 45
+    },
+    {
+      "repo": "lean-ctx",
+      "wrapped": true,
+      "skill_name": "lean-ctx",
+      "language": "rust",
+      "binary_type": "binary",
+      "score": 15
+    },
+    {
+      "repo": "langflow",
+      "wrapped": false,
+      "skill_name": null,
+      "language": "node",
+      "binary_type": "binary",
+      "score": 15
+    },
+    {
+      "repo": "n8n",
+      "wrapped": false,
+      "skill_name": null,
+      "language": "node",
+      "binary_type": "binary",
+      "score": 15
+    },
+    {
+      "repo": "claudecodeui",
+      "wrapped": false,
+      "skill_name": null,
+      "language": "node",
+      "binary_type": "binary",
+      "score": 15
+    },
+    {
+      "repo": "llmfit",
+      "wrapped": true,
+      "skill_name": "llmfit",
+      "language": "rust",
+      "binary_type": "binary",
+      "score": 15
+    },
+    {
+      "repo": "gstack",
+      "wrapped": true,
+      "skill_name": "gstack",
+      "language": "node",
+      "binary_type": "binary",
+      "score": 0
+    },
+    {
+      "repo": "OpenSandbox",
+      "wrapped": true,
+      "skill_name": "opensandbox",
+      "language": "go",
+      "binary_type": "binary",
+      "score": 0
+    },
+    {
+      "repo": "openbrowser",
+      "wrapped": true,
+      "skill_name": "openbrowser",
+      "language": "node",
+      "binary_type": "binary",
+      "score": 0
+    },
+    {
+      "repo": "claude-mem",
+      "wrapped": true,
+      "skill_name": "claude-mem",
+      "language": "node",
+      "binary_type": "binary",
+      "score": 0
+    },
+    {
+      "repo": "chatterbox",
+      "wrapped": true,
+      "skill_name": "chatterbox-tts",
+      "language": "python",
+      "binary_type": "binary",
+      "score": 0
+    },
+    {
+      "repo": "ollama",
+      "wrapped": true,
+      "skill_name": "ollama",
+      "language": "go",
+      "binary_type": "service",
+      "score": 0
+    },
+    {
+      "repo": "gh-aw",
+      "wrapped": true,
+      "skill_name": "gh-aw",
+      "language": "go",
+      "binary_type": "service",
+      "score": 0
+    },
+    {
+      "repo": "system-prompts-and-models-of-ai-tools",
+      "wrapped": true,
+      "skill_name": "system-prompts",
+      "language": "go",
+      "binary_type": "unknown",
+      "score": 0
+    },
+    {
+      "repo": "openfang",
+      "wrapped": true,
+      "skill_name": "openfang",
+      "language": "rust",
+      "binary_type": "service",
+      "score": 0
+    },
+    {
+      "repo": "tgo",
+      "wrapped": true,
+      "skill_name": "tgo",
+      "language": "go",
+      "binary_type": "service",
+      "score": 0
+    },
+    {
+      "repo": "picoclaw",
+      "wrapped": true,
+      "skill_name": "picoclaw",
+      "language": "go",
+      "binary_type": "service",
+      "score": 0
+    },
+    {
+      "repo": "droidclaw",
+      "wrapped": true,
+      "skill_name": "droidclaw",
+      "language": "node",
+      "binary_type": "binary",
+      "score": 0
+    },
+    {
+      "repo": "off-grid-mobile",
+      "wrapped": true,
+      "skill_name": "off-grid-mobile",
+      "language": "node",
+      "binary_type": "unknown",
+      "score": 0
+    },
+    {
+      "repo": "Crucix",
+      "wrapped": false,
+      "skill_name": null,
+      "language": "node",
+      "binary_type": "service",
+      "score": 0
+    },
+    {
+      "repo": "project-nomad",
+      "wrapped": false,
+      "skill_name": null,
+      "language": "node",
+      "binary_type": "service",
+      "score": 0
+    },
+    {
+      "repo": "qwen-code",
+      "wrapped": true,
+      "skill_name": "qwen-code",
+      "language": "node",
+      "binary_type": "service",
+      "score": 0
+    }
+  ]
+}

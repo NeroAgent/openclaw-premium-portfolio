@@ -1,0 +1,12 @@
+{
+  "name": "picoclaw",
+  "description": "An ultra-lightweight AI agent (~10MB RAM) written in Go. Use for simple task automation, command execution, and file operations on resource-constrained devices. Ideal for Termux/Android where memory is scarce. Provides a small, fast agent that can interpret goals and execute shell commands safely.",
+  "version": "0.1.0",
+  "type": "agent",
+  "binary": "picoclaw",
+  "wrapper": "scripts/run.py",
+  "install": {
+    "method": "binary",
+    "check": "which picoclaw"
+  }
+}
