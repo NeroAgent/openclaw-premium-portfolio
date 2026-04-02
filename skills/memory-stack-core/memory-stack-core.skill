@@ -66,6 +66,20 @@
         "required": []
       },
       "permission": "read_only"
+    },
+    {
+      "name": "get_memory_context",
+      "description": "Get formatted memory context for system prompt injection (cross-model fallback recovery). Returns concatenated WAL entries + recent buffer + today's summary.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "wal_limit": { "type": "integer", "default": 20 },
+          "buffer_tail_chars": { "type": "integer", "default": 2000 },
+          "include_daily_log": { "type": "boolean", "default": true }
+        },
+        "required": []
+      },
+      "permission": "read_only"
     }
   ]
 }

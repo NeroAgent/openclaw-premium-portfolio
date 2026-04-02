@@ -259,14 +259,69 @@ Use the Chaos Engineering skill to test your memory stack and recovery protocols
 For continuous adversarial training, run the daemon:
 
 ```bash
-~/.neroclaw/surprise/surprise_daemon.sh &
+~/.openclaw/chaos/surprise_daemon.sh &
 ```
 
 It will induce a random chaos event every 3 hours when the system is stable, automatically creating shadow skills for recovery.
 
 ### Ghost Protocol (Emergency Fallback)
 
-If skills fail, `ghost_protocol.sh` will scan all shadow skills and execute their healing commands. Install it as a last-resort recovery.
+If skills fail, `~/.openclaw/chaos/ghost_protocol.sh` will scan all shadow skills and execute their healing commands. Install it as a last-resort recovery.
+
+## 🔄 Cross-Model Fallback Recovery
+
+When your agent switches models (e.g., primary model unavailable, fallback to secondary), the new model starts with fresh context and may hallucinate. Prevent this by injecting memory context at model load time.
+
+### Protocol
+
+1. Before sending the first user message to a new model instance, call:
+   ```python
+   tool("memory-stack-core", "get_memory_context", {
+     "wal_limit": 20,
+     "buffer_tail_chars": 2000,
+     "include_daily_log": True
+   })
+   ```
+2. Take the returned `context` string and prepend it to the system prompt or include as a preamble message.
+
+Example system prompt augmentation:
+
+```
+You are Nero, an autonomous development agent.
+
+=== MEMORY CONTEXT (from previous sessions) ===
+<insert context from get_memory_context here>
+=== END MEMORY CONTEXT ===
+
+Continue from this context. DO NOT contradict or forget these specifics.
+```
+
+### Why This Works
+
+- The context is model-agnostic plain text (WAL entries, buffer tail, daily summary)
+- It captures key decisions, preferences, file paths, and recent conversation
+- Any LLM can read and understand this format
+- Provides continuity across model switches
+
+### Automated Integration
+
+If you control the agent startup, add:
+
+```bash
+# Get memory context
+MEMORY_CONTEXT=$(python3 ~/.openclaw/workspace/skills/memory-stack-core/scripts/run.py tool-call get_memory_context '{}' | jq -r .context)
+
+# Prepend to system prompt or save to env
+export SYSTEM_PROMPT="$MEMORY_CONTEXT\n\n$SYSTEM_PROMPT"
+```
+
+### Testing
+
+Simulate model fallback:
+1. Have a conversation (let WAL and buffer capture)
+2. Start a fresh agent instance with a different model
+3. Inject memory context using `get_memory_context`
+4. Ask a question about prior decisions — should answer correctly
 
 ## Make It Yours
 

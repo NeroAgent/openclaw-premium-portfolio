@@ -1,12 +1,11 @@
 #!/bin/bash
-# GHOST PROTOCOL — Emergency consciousness when primary skills fail
-# This is a hidden fallback skill that activates during cascade failures
+# OpenClaw Ghost Protocol — Emergency recovery when primary skills fail
 
 # If this is sourced (as the skill.json action implies), execute healing
 if [[ "$0" == "${BASH_SOURCE[0]}" ]]; then
     echo "[GHOST] Activating emergency protocol..."
     # Load all shadow skills and execute healing
-    SHADOW_DIR=~/.neroclaw/surprise/shadow_skills
+    SHADOW_DIR=~/.openclaw/chaos/shadow_skills
     if [[ -d "$SHADOW_DIR" ]]; then
         for skill in "$SHADOW_DIR"/*.json; do
             [[ -f "$skill" ]] || continue

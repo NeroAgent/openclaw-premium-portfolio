@@ -110,6 +110,48 @@ def memory_health():
         "status": "healthy" if utilization < 80 else "high"
     }
 
+def get_memory_context(wal_limit=20, buffer_tail_chars=2000, include_daily_log=True):
+    """Return formatted memory context for system prompt injection."""
+    sections = []
+    # WAL entries (last N)
+    if WAL_FILE.exists():
+        try:
+            with open(WAL_FILE) as f:
+                lines = f.readlines()[-wal_limit:]
+            entries = []
+            for line in lines:
+                try:
+                    entries.append(json.loads(line))
+                except:
+                    continue
+            if entries:
+                wal_section = "## Recent WAL (critical specifics)\n"
+                for e in entries:
+                    dt = e.get('timestamp', '').replace('Z','')[:16].replace('T',' ')
+                    wal_section += f"- [{e.get('category')}] {e.get('content')} (at {dt})\n"
+                sections.append(wal_section)
+        except Exception as e:
+            sections.append(f"[WAL error: {e}]")
+    # Buffer tail
+    if BUFFER_FILE.exists():
+        try:
+            buf_text = BUFFER_FILE.read_text()
+            tail = buf_text[-buffer_tail_chars:] if len(buf_text) > buffer_tail_chars else buf_text
+            sections.append("## Recent Working Buffer (conversation tail)\n```\n" + tail + "\n```")
+        except Exception as e:
+            sections.append(f"[Buffer error: {e}]")
+    # Today's daily log
+    if include_daily_log:
+        today = datetime.now().strftime("%Y-%m-%d")
+        daily_file = MEMORY_DIR / f"{today}.md"
+        if daily_file.exists():
+            try:
+                daily_content = daily_file.read_text()
+                sections.append("## Today's Session Log\n" + daily_content[:2000])
+            except:
+                pass
+    return "\n\n".join(sections) if sections else ""
+
 def auto_capture_wal_from_message(message: str):
     """Scan message for specifics and write to WAL automatically."""
     if not load_config()["wal"].get("auto_capture", True):
@@ -161,6 +203,13 @@ def main():
         elif tool == "memory_health":
             result = memory_health()
             print(json.dumps(result))
+        elif tool == "get_memory_context":
+            result = get_memory_context(
+                wal_limit=input_json.get("wal_limit", 20),
+                buffer_tail_chars=input_json.get("buffer_tail_chars", 2000),
+                include_daily_log=input_json.get("include_daily_log", True)
+            )
+            print(json.dumps({"context": result}))
         else:
             print(json.dumps({"error": f"unknown tool: {tool}"}))
             sys.exit(1)

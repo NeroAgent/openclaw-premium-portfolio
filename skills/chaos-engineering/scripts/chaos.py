@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# NEROCLAW CHAOS ENGINE v1.0 — "Break yourself to rebuild stronger"
+# OpenClaw Chaos Engineering — "Break to rebuild stronger"
 # Adversarial training & auto-healing for OpenClaw agents
 
 import os
@@ -12,8 +12,8 @@ from pathlib import Path
 from datetime import datetime
 
 WORKSPACE = Path.cwd()
-CHAOS_DIR = Path.home() / ".neroclaw" / "surprise"
-CHAOS_ENGINE = CHAOS_DIR / "chaos_engine"
+CHAOS_DIR = Path.home() / ".openclaw" / "chaos"
+CHAOS_ENGINE = CHAOS_DIR / "engine"
 SHADOW_SKILLS = CHAOS_DIR / "shadow_skills"
 JOURNAL = CHAOS_ENGINE / "battle_log.jsonl"
 
@@ -22,23 +22,23 @@ class ChaosMonkey:
         self.breaks = [
             {
                 "name": "dependency_hell",
-                "cmd": "mv ~/.neroclaw/skills/site_measurement/skill.json ~/.neroclaw/skills/site_measurement/skill.json.bak 2>/dev/null || true",
-                "fix": "mv ~/.neroclaw/skills/site_measurement/skill.json.bak ~/.neroclaw/skills/site_measurement/skill.json 2>/dev/null || true"
+                "cmd": "mv ~/.openclaw/workspace/skills/site_measurement/skill.json ~/.openclaw/workspace/skills/site_measurement/skill.json.bak 2>/dev/null || true",
+                "fix": "mv ~/.openclaw/workspace/skills/site_measurement/skill.json.bak ~/.openclaw/workspace/skills/site_measurement/skill.json 2>/dev/null || true"
             },
             {
                 "name": "port_hijack",
                 "cmd": "fuser -k 9004/tcp 2>/dev/null || true",
-                "fix": "~/.openclaw/nerovision-service/start_vision.sh"
+                "fix": "echo 'Port hijack healed (restart service manually)'"
             },
             {
                 "name": "permission_entropy",
-                "cmd": "chmod 000 ~/.neroclaw/skills/*/ 2>/dev/null || true",
-                "fix": "chmod 755 ~/.neroclaw/skills/*/ 2>/dev/null || true"
+                "cmd": "chmod 000 ~/.openclaw/workspace/skills/*/ 2>/dev/null || true",
+                "fix": "chmod 755 ~/.openclaw/workspace/skills/*/ 2>/dev/null || true"
             },
             {
                 "name": "git_amnesia",
-                "cmd": "rm -rf ~/.neroclaw/.git 2>/dev/null; cd ~/.neroclaw && git init && git add -A && git commit -m 'chaos: wiped history'",
-                "fix": "cd ~/.neroclaw && git checkout -- . 2>/dev/null || true"
+                "cmd": "rm -rf ~/.openclaw/workspace/.git 2>/dev/null; cd ~/.openclaw/workspace && git init && git add -A && git commit -m 'chaos: wiped history'",
+                "fix": "cd ~/.openclaw/workspace && git checkout -- . 2>/dev/null || true"
             },
             {
                 "name": "memory_wal_corruption",
