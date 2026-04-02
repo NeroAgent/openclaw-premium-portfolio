@@ -1,0 +1,87 @@
+{
+  "name": "pagepilot-dropshipping",
+  "description": "AI product page generation and Shopify integration. Scrape products from AliExpress/Amazon, generate high-converting landing pages with AI, and deploy to Shopify automatically.",
+  "version": "1.0.0",
+  "author": "Nero",
+  "price": "$39/mo (Lite), $59/mo (Pro), $79/mo (Expert)",
+  "type": "premium",
+  "tags": ["dropshipping", "ecommerce", "ai", "shopify", "automation"],
+  "dependencies": ["nerovision", "agentmail"],
+  "tools": [
+    {
+      "name": "scrape_product",
+      "description": "Scrape product data from URL (AliExpress, Amazon, Shopify)",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "source_url": {"type": "string"},
+          "target_market": {"type": "string"},
+          "extract_media": {"type": "boolean", "default": true},
+          "extract_specs": {"type": "boolean", "default": true}
+        },
+        "required": ["source_url"]
+      },
+      "permission": "network"
+    },
+    {
+      "name": "generate_page",
+      "description": "Generate AI-powered landing page from product data",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "product_data": {"type": "object"},
+          "tone": {"type": "string", "enum": ["aggressive", "professional", "luxury", "casual"]},
+          "target_audience": {"type": "string"},
+          "language": {"type": "string", "default": "en"},
+          "template_type": {"type": "string", "enum": ["product_launch", "preorder", "upsell", "waitlist"]},
+          "seo_keywords": {"type": "array", "items": {"type": "string"}},
+          "cta_text": {"type": "string"}
+        },
+        "required": ["product_data"]
+      },
+      "permission": "workspace_write"
+    },
+    {
+      "name": "deploy_to_shopify",
+      "description": "Deploy generated page to Shopify store",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "page_id": {"type": "string"},
+          "store_url": {"type": "string"},
+          "theme_id": {"type": "string"},
+          "product_sync": {"type": "boolean", "default": false},
+          "inventory_sync": {"type": "boolean", "default": false},
+          "domain_mapping": {"type": "string"}
+        },
+        "required": ["page_id", "store_url"]
+      },
+      "permission": "network"
+    },
+    {
+      "name": "get_winning_products",
+      "description": "Get daily winning products from PagePilot intelligence",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "limit": {"type": "integer", "default": 10},
+          "niche": {"type": "string"}
+        },
+        "required": []
+      },
+      "permission": "read_only"
+    },
+    {
+      "name": "analyze_conversion",
+      "description": "Analyze page conversion potential and get improvement suggestions",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "page_id": {"type": "string"}
+        },
+        "required": ["page_id"]
+      },
+      "permission": "read_only"
+    }
+  ]
+}
