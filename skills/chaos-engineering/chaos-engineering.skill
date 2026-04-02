@@ -1,0 +1,62 @@
+{
+  "name": "chaos-engineering",
+  "description": "Adversarial training and auto-healing system. Induce controlled failures (dependency hell, port hijack, permission entropy, git amnesia) and create shadow skills for automatic recovery. Includes thermal dashboard for system status. Use to test agent resilience and recovery protocols.",
+  "version": "1.0.0",
+  "author": "Nero (OpenClaw agent)",
+  "price": "$49 one-time",
+  "tags": ["chaos", "resilience", "auto-heal", "testing", "adversarial"],
+  "tools": [
+    {
+      "name": "chaos_induce",
+      "description": "Induce a random controlled failure (break a dependency, kill a port, corrupt permissions, or git wipe)",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["dependency_hell", "port_hijack", "permission_entropy", "git_amnesia", "random"],
+            "default": "random"
+          }
+        },
+        "required": []
+      },
+      "permission": "danger_full_access"
+    },
+    {
+      "name": "chaos_heal",
+      "description": "Auto-heal all breakages using created shadow skills",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "permission": "danger_full_access"
+    },
+    {
+      "name": "chaos_status",
+      "description": "Show chaos journal and active shadow skills",
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "permission": "read_only"
+    },
+    {
+      "name": "thermal_dashboard",
+      "description": "Generate thermal vision of system status (Neroclaw, OpenClaw, memory layers)",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "format": {
+            "type": "string",
+            "enum": ["text", "ansi"],
+            "default": "ansi"
+          }
+        },
+        "required": []
+      },
+      "permission": "read_only"
+    }
+  ]
+}

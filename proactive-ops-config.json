@@ -1,0 +1,17 @@
+{
+  "alerts": {
+    "token_warning": 70,
+    "token_critical": 85,
+    "buffer_warning_size_kb": 5000
+  },
+  "suggestions": {
+    "enabled": true,
+    "max_per_turn": 1,
+    "include_open_loops": true,
+    "include_context_gaps": true
+  },
+  "dashboard": {
+    "show_suggestions": true,
+    "show_alerts": true
+  }
+}

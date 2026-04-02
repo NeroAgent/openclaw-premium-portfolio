@@ -16,3 +16,17 @@ services:
       - key: PORT
         value: 3000
     plan: starter  # $7/mo for always-on (free tier sleeps)
+
+  - type: web
+    name: openclaw-premium-portfolio-1
+    env: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: STRIPE_SECRET
+        fromSecret: STRIPE_SECRET
+      - key: BASE_URL
+        value: https://openclaw-premium-portfolio-1.onrender.com
+      - key: PORT
+        value: 3000
+    plan: free

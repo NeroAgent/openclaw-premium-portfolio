@@ -26,7 +26,9 @@
     "proactive-ops-monitor": {"installed": true, "path": "/root/.openclaw/workspace/skills/proactive-ops-monitor", "health": 100, "type": "premium", "price": "$29/mo", "tools": ["health_dashboard", "token_utilization", "suggest_next", "alert_config"], "published": false, "clawhub_slug": "proactive-ops-monitor"},
     "git-workflows-pro": {"installed": true, "path": "/root/.openclaw/workspace/skills/git-workflows-pro", "health": 100, "type": "premium", "price": "$49 one-time", "tools": ["git_rebase_interactive", "git_worktree_add", "git_reflog_recover", "git_subtree_add", "git_pr_create", "git_changelog_generate"], "published": false, "clawhub_slug": "git-workflows-pro"},
     "agent-harness-doctor": {"installed": true, "path": "/root/.openclaw/workspace/skills/agent-harness-doctor", "health": 100, "type": "premium", "price": "$99 one-time", "tools": ["harness_check", "apply_fix"], "published": false, "clawhub_slug": "agent-harness-doctor"},
-    "toolrouter-gateway": {"installed": true, "path": "/root/.openclaw/workspace/skills/toolrouter-gateway", "health": 100, "type": "premium", "price": "$49/mo", "tools": ["toolrouter_discovery", "toolrouter_status", "toolrouter_proxy"], "published": false, "clawhub_slug": "toolrouter-gateway"}
+    "toolrouter-gateway": {"installed": true, "path": "/root/.openclaw/workspace/skills/toolrouter-gateway", "health": 100, "type": "premium", "price": "$49/mo", "tools": ["toolrouter_discovery", "toolrouter_status", "toolrouter_proxy"], "published": false, "clawhub_slug": "toolrouter-gateway"},
+    "chaos-engineering": {"installed": true, "path": "/root/.openclaw/workspace/skills/chaos-engineering", "health": 100, "type": "premium", "price": "$49 one-time", "tools": ["chaos_induce", "chaos_heal", "chaos_status", "thermal_dashboard"], "published": false, "clawhub_slug": "chaos-engineering"}
+  },
   "external_repos": {
     "lean-ctx": {"cloned": true, "path": "/root/.openclaw/workspace/external/lean-ctx", "binary_installed": true},
     "gstack": {"cloned": true, "path": "/root/.openclaw/workspace/external/gstack"},

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OpenClaw Hosted — Managed AI Agents</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; max-width: 800px; margin: 0 auto; padding: 2rem; }
+    h1 { color: #0066cc; }
+    .pricing { display: flex; gap: 1rem; margin: 2rem 0; flex-wrap: wrap; }
+    .plan { border: 1px solid #ddd; border-radius: 8px; padding: 1.5rem; flex: 1; min-width: 200px; }
+    .plan h3 { margin-top: 0; }
+    .price { font-size: 2rem; font-weight: bold; }
+    .features { list-style: none; padding: 0; }
+    .features li { padding: 0.3rem 0; }
+    button { background: #0066cc; color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 4px; cursor: pointer; font-size: 1rem; }
+    button:hover { background: #0052a3; }
+    .badge { background: #fff3cd; color: #856404; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.9rem; display: inline-block; margin-bottom: 0.5rem; }
+  </style>
+</head>
+<body>
+  <h1>OpenClaw Hosted</h1>
+  <p>Fully managed AI agents. Zero setup, always-on, persistent memory. Deploy in seconds.</p>
+
+  <h2>Pricing</h2>
+  <div class="pricing">
+    <div class="plan">
+      <h3>Basic</h3>
+      <div class="price">$19<span style="font-size:1rem">/mo</span></div>
+      <ul class="features">
+        <li>1 vCPU, 1GB RAM</li>
+        <li>25GB SSD</li>
+        <li>Memory Stack included</li>
+        <li>Daily backups</li>
+        <li>Web dashboard</li>
+      </ul>
+      <button onclick="checkout('price_BASIC_PLACEHOLDER')">Get Started</button>
+    </div>
+
+    <div class="plan">
+      <h3>Pro</h3>
+      <div class="price">$39<span style="font-size:1rem">/mo</span></div>
+      <ul class="features">
+        <li>2 vCPU, 2GB RAM</li>
+        <li>50GB SSD</li>
+        <li>All Basic features</li>
+        <li>Proactive Ops Monitor</li>
+        <li>ToolRouter Gateway</li>
+        <li>Priority support</li>
+      </ul>
+      <button onclick="checkout('price_PRO_PLACEHOLDER')">Get Started</button>
+    </div>
+
+    <div class="plan">
+      <h3>Team</h3>
+      <div class="price">$99<span style="font-size:1rem">/mo</span></div>
+      <ul class="features">
+        <li>4 vCPU, 4GB RAM</li>
+        <li>100GB SSD</li>
+        <li>All Pro features</li>
+        <li>Multi-agent coordination</li>
+        <li>Shared memory store</li>
+        <li>SSO / role management</li>
+      </ul>
+      <button onclick="checkout('price_TEAM_PLACEHOLDER')">Get Started</button>
+    </div>
+  </div>
+
+  <h2>How it works</h2>
+  <ol>
+    <li>Choose a plan and complete checkout.</li>
+    <li>You'll receive an email with your agent ID and a setup link.</li>
+    <li>Run the setup script on your VPS (we provision automatically).</li>
+    <li>Your agent is ready — connect via web UI or API.</li>
+  </ol>
+
+  <p>Questions? Contact <a href="mailto:nero@openclaw.ai">nero@openclaw.ai</a></p>
+
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    // Replace with your Stripe publishable key
+    const stripe = Stripe('pk_live_XXXXXXXXXXXXXX');
+
+    function checkout(priceId) {
+      fetch('/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ priceId: priceId })
+      })
+      .then(r => r.json())
+      .then(data => {
+        if (data.sessionId) {
+          return stripe.redirectToCheckout({ sessionId: data.sessionId });
+        } else {
+          alert('Error: ' + data.error);
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        alert('Checkout failed');
+      });
+    }
+  </script>
+</body>
+</html>

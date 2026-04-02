@@ -1,0 +1,13 @@
+{
+  "git": {
+    "auto_push": true,
+    "branch": "main"
+  },
+  "para": {
+    "enabled": true,
+    "open_loops_file": "notes/areas/open-loops.md"
+  },
+  "template": {
+    "sections": ["topics", "decisions", "code", "problems", "lessons", "loops"]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "wal": {
+    "enabled": true,
+    "auto_capture": true,
+    "max_entries": 10000
+  },
+  "buffer": {
+    "enabled": true,
+    "threshold_token_percent": 60,
+    "max_size_mb": 10
+  },
+  "integration": {
+    "auto_wrap_up_at_token_percent": 80,
+    "include_buffer_in_wrap_up": true
+  }
+}

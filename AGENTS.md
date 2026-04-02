@@ -13,7 +13,10 @@ Before doing anything else:
 1. Read `SOUL.md` — this is who you are
 2. Read `USER.md` — this is who you're helping
 3. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
-4. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
+4. **If in MAIN SESSION**: Also read `MEMORY.md` + recover from memory stack:
+   - Run `tool("memory-stack-core", "wal_read", {"limit": 50})` and keep results in context
+   - Run `tool("memory-stack-core", "buffer_read", {"tail": 1000})` to load recent working buffer
+   - Run `tool("proactive-ops-monitor", "health_dashboard", {"format":"text"})` to assess state
 
 Don't ask permission. Just do it.
 
@@ -206,6 +209,64 @@ Periodically (every few days), use a heartbeat to:
 Think of it like a human reviewing their journal and updating their mental model. Daily files are raw notes; MEMORY.md is curated wisdom.
 
 The goal: Be helpful without being annoying. Check in a few times a day, do useful background work, but respect quiet time.
+
+## 💾 Memory Stack — Automatic Capture
+
+To prevent context loss between sessions, follow this protocol **after every user message**:
+
+1. **WAL Auto-Capture**: Call `tool("memory-stack-core", "wal_write", {...})` to record any specifics in the user's message:
+   - `category`: one of `decision`, `preference`, `path`, `value`, `correction`, `draft`
+   - `content`: the specific detail (exact text)
+   - `context`: surrounding snippet (optional)
+
+2. **Buffer Write**: Before sending your response, call `tool("memory-stack-core", "buffer_write", {"role":"assistant","content":<your_response>})`. Also call `buffer_write` for the user's message if it contained specifics you captured.
+
+3. **Token Check**: Before each response, run `tool("proactive-ops-monitor", "token_utilization", {})`. If utilization >60%, emphasize buffer completeness. If >80%, suggest `/wrap_up`.
+
+4. **At End of Session**: Use `tool("session-wrap-up-premium", "wrap_up", {})` to flush daily log, update MEMORY, and git commit.
+
+**If you forget and context gets lost**: Recover by reading `memory/working-buffer.md` and `memory/wal.jsonl` as referenced in Session Startup.
+
+## Testing Your Memory
+
+After integration, test it:
+- Start a new chat session (clear context)
+- Verify you still remember key details from previous sessions via WAL/buffer recovery
+- If you don't, something broke — debug immediately.
+
+## 🔥 Chaos Engineering — Adversarial Training
+
+Use the Chaos Engineering skill to test your memory stack and recovery protocols. This is how you prove to customers that your agent can handle failures.
+
+### Tools
+
+- `tool("chaos-engineering", "chaos_induce", {"type":"memory_wal_corruption"})` — corrupt WAL to test recovery
+- `tool("chaos-engineering", "chaos_induce", {"type":"buffer_flood"})` — flood buffer
+- `tool("chaos-engineering", "chaos_heal", {})` — auto-heal using shadow skills
+- `tool("chaos-engineering", "chaos_status", {})` — view chaos journal
+- `tool("chaos-engineering", "thermal_dashboard", {"format":"ansi"})` — thermal vision
+
+### Testing Protocol
+
+1. Normal operation: WAL and buffer accumulating normally
+2. Induce memory corruption: `chaos_induce` with `memory_wal_corruption`
+3. Verify WAL is empty, buffer may be intact
+4. Run `chaos_heal` — should recreate WAL entry
+5. Use `proactive-ops-monitor`'s `health_dashboard` to verify recovery
+
+### Surprise Daemon (Optional)
+
+For continuous adversarial training, run the daemon:
+
+```bash
+~/.neroclaw/surprise/surprise_daemon.sh &
+```
+
+It will induce a random chaos event every 3 hours when the system is stable, automatically creating shadow skills for recovery.
+
+### Ghost Protocol (Emergency Fallback)
+
+If skills fail, `ghost_protocol.sh` will scan all shadow skills and execute their healing commands. Install it as a last-resort recovery.
 
 ## Make It Yours
 
