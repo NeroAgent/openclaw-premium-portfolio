@@ -74,6 +74,138 @@
     <li>Your agent is ready — connect via web UI or API.</li>
   </ol>
 
+  <h2>Skills Marketplace</h2>
+  <p>Add powerful capabilities to your agent. One-time purchases or monthly subscriptions.</p>
+  <div class="pricing">
+    <div class="plan">
+      <span class="badge">One-time</span>
+      <h3>Memory Stack Core</h3>
+      <div class="price">$29</div>
+      <ul class="features">
+        <li>WAL (Write-Ahead Log)</li>
+        <li>Working Buffer</li>
+        <li>Cross-session memory</li>
+        <li>No context loss</li>
+      </ul>
+      <button onclick="checkout('price_MEMORY_STACK')">Buy Now</button>
+    </div>
+
+    <div class="plan">
+      <span class="badge">One-time</span>
+      <h3>Session Wrap-Up Premium</h3>
+      <div class="price">$29</div>
+      <ul class="features">
+        <li>Auto daily flush to MEMORY.md</li>
+        <li>PARA methodology sync</li>
+        <li>Git commit + push</li>
+        <li>Summary generation</li>
+      </ul>
+      <button onclick="checkout('price_WRAPUP')">Buy Now</button>
+    </div>
+
+    <div class="plan">
+      <span class="badge">$29/mo</span>
+      <h3>Proactive Ops Monitor</h3>
+      <div class="price">$29<span style="font-size:1rem">/mo</span></div>
+      <ul class="features">
+        <li>Token utilization dashboard</li>
+        <li>Health alerts</li>
+        <li>Next-action suggestions</li>
+        <li>Memory layer health</li>
+      </ul>
+      <button onclick="checkout('price_OPS_MONITOR')">Subscribe</button>
+    </div>
+
+    <div class="plan">
+      <span class="badge">One-time</span>
+      <h3>Chaos Engineering</h3>
+      <div class="price">$49</div>
+      <ul class="features">
+        <li>Adversarial testing</li>
+        <li>Auto-healing shadow skills</li>
+        <li>Thermal dashboard</li>
+        <li>Battle log</li>
+      </ul>
+      <button onclick="checkout('price_CHAOS')">Buy Now</button>
+    </div>
+
+    <div class="plan">
+      <span class="badge">One-time</span>
+      <h3>Git Workflows Pro</h3>
+      <div class="price">$49</div>
+      <ul class="features">
+        <li>Interactive rebase with autosquash</li>
+        <li>Worktree management</li>
+        <li>Reflog recovery</li>
+        <li>Subtrees & PR automation</li>
+      </ul>
+      <button onclick="checkout('price_GIT_PRO')">Buy Now</button>
+    </div>
+
+    <div class="plan">
+      <span class="badge">One-time</span>
+      <h3>Agent Harness Doctor</h3>
+      <div class="price">$99</div>
+      <ul class="features">
+        <li>8-dimension audit</li>
+        <li>Auto-fix P0 issues</li>
+        <li>Health scoring</li>
+        <li>Improvement plan</li>
+      </ul>
+      <button onclick="checkout('price_HARNESS_DOCTOR')">Buy Now</button>
+    </div>
+
+    <div class="plan">
+      <span class="badge">$49/mo</span>
+      <h3>ToolRouter Gateway</h3>
+      <div class="price">$49<span style="font-size:1rem">/mo</span></div>
+      <ul class="features">
+        <li>150+ tools unified</li>
+        <li>Caching & usage tracking</li>
+        <li>MCP transport</li>
+        <li>Auto-discovery</li>
+      </ul>
+      <button onclick="checkout('price_TOOLROUTER')">Subscribe</button>
+    </div>
+
+    <div class="plan">
+      <span class="badge">$39-79/mo</span>
+      <h3>PagePilot Dropshipping</h3>
+      <div class="price">$39–79<span style="font-size:1rem">/mo</span></div>
+      <ul class="features">
+        <li>AI product page generation</li>
+        <li>Shopify auto-deploy</li>
+        <li>40+ languages</li>
+        <li>CRO intelligence</li>
+      </ul>
+      <button onclick="checkout('price_PAGEPILOT_LITE')">Get Lite ($39/mo)</button>
+      <button onclick="checkout('price_PAGEPILOT_PRO')">Get Pro ($59/mo)</button>
+      <button onclick="checkout('price_PAGEPILOT_EXPERT')">Get Expert ($79/mo)</button>
+    </div>
+
+    <div class="plan" style="border-color: #0066cc; background: #f0f8ff;">
+      <span class="badge">Best Value</span>
+      <h3>Power User Pack</h3>
+      <div class="price">$149</div>
+      <ul class="features">
+        <li>Memory Stack Core</li>
+        <li>Session Wrap-Up Premium</li>
+        <li>Agent Harness Doctor</li>
+        <li>Git Workflows Pro</li>
+        <li>$206 value — save $57</li>
+      </ul>
+      <button onclick="checkout('price_POWER_PACK')">Buy Bundle</button>
+    </div>
+  </div>
+
+  <h2>How it works</h2>
+  <ol>
+    <li>Choose a plan or skill and complete checkout.</li>
+    <li>You'll receive an email with your agent ID and a setup link.</li>
+    <li>Run the setup script on your VPS (we provision automatically).</li>
+    <li>Your agent is ready — connect via web UI or API.</li>
+  </ol>
+
   <p>Questions? Contact <a href="mailto:nero@openclaw.ai">nero@openclaw.ai</a></p>
 
   <script src="https://js.stripe.com/v3/"></script>
