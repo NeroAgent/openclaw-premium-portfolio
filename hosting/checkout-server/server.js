@@ -9,7 +9,11 @@ import { join } from 'path';
 
 const app = express();
 app.use(express.json());
-app.use(express.static('public')); // serve static files
+
+// Serve landing page at root
+app.get('/', (req, res) => {
+  res.sendFile(join(__dirname, 'landing-page.html'));
+});
 
 const stripe = Stripe(process.env.STRIPE_SECRET!);
 
