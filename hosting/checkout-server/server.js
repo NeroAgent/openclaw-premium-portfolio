@@ -4,7 +4,6 @@
 
 import express from 'express';
 import Stripe from 'stripe';
-import { readFileSync } from 'fs';
 import { join } from 'path';
 
 const app = express();
@@ -15,7 +14,14 @@ app.get('/', (req, res) => {
   res.sendFile(join(__dirname, 'landing-page.html'));
 });
 
-const stripe = Stripe(process.env.STRIPE_SECRET!);
+const stripeSecret = process.env.STRIPE_SECRET;
+if (!stripeSecret) {
+  console.error('STRIPE_SECRET environment variable is required');
+  process.exit(1);
+}
+const stripe = Stripe(stripeSecret, {
+  apiVersion: '2025-04-30.basil'
+});
 
 // POST /create-checkout-session
 // Body: { priceId: "price_..." }
@@ -32,7 +38,7 @@ app.post('/create-checkout-session', async (req, res) => {
       line_items: [{ price: priceId, quantity: 1 }],
       success_url: `${process.env.BASE_URL || 'http://localhost:3000'}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.BASE_URL || 'http://localhost:3000'}/cancel`,
-      metadata: { tier: priceId } // you can map to tier
+      metadata: { tier: priceId }
     });
     res.json({ sessionId: session.id });
   } catch (err) {
