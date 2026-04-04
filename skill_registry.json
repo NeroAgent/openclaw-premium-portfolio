@@ -33,30 +33,6 @@
       "health": 100,
       "type": "web"
     },
-    "claude-mem": {
-      "installed": true,
-      "path": "/usr/local/lib/node_modules/openclaw/skills/claude-mem",
-      "health": 99,
-      "type": "memory"
-    },
-    "opensandbox": {
-      "installed": true,
-      "path": "/usr/local/lib/node_modules/openclaw/skills/opensandbox",
-      "health": 100,
-      "type": "sandbox"
-    },
-    "gstack": {
-      "installed": true,
-      "path": "/usr/local/lib/node_modules/openclaw/skills/gstack",
-      "health": 99,
-      "type": "reference"
-    },
-    "chatterbox-tts": {
-      "installed": true,
-      "path": "/usr/local/lib/node_modules/openclaw/skills/chatterbox-tts",
-      "health": 99,
-      "type": "tts"
-    },
     "agentmail": {
       "installed": true,
       "path": "/usr/local/lib/node_modules/openclaw/skills/agentmail",
@@ -76,54 +52,6 @@
       "health": 100,
       "binary_built": true,
       "type": "coding"
-    },
-    "ollama": {
-      "installed": true,
-      "path": "/root/.openclaw/workspace/skills/ollama",
-      "health": 100,
-      "type": "llm_serving",
-      "note": "binary pending external build"
-    },
-    "gh-aw": {
-      "installed": true,
-      "path": "/root/.openclaw/workspace/skills/gh-aw",
-      "health": 100,
-      "type": "github_automation",
-      "note": "binary pending external build (Go segfault in PRoot)"
-    },
-    "llmfit": {
-      "installed": true,
-      "path": "/root/.openclaw/workspace/skills/llmfit",
-      "health": 100,
-      "type": "model_discovery",
-      "note": "binary pending external build (Rust segfault in PRoot)"
-    },
-    "picoclaw": {
-      "installed": true,
-      "path": "/root/.openclaw/workspace/skills/picoclaw",
-      "health": 100,
-      "type": "agent",
-      "note": "binary pending external build (Go segfault in PRoot)"
-    },
-    "openfang": {
-      "installed": true,
-      "path": "/root/.openclaw/workspace/skills/openfang",
-      "health": 100,
-      "type": "agent_os",
-      "note": "binary pending external build (Rust)"
-    },
-    "demo-tool": {
-      "installed": true,
-      "path": "/root/.openclaw/workspace/skills/demo-tool",
-      "health": 100,
-      "type": "demo"
-    },
-    "file-reader": {
-      "installed": true,
-      "path": "/root/.openclaw/workspace/skills/file-reader",
-      "health": 100,
-      "type": "demo",
-      "manifest_pattern": true
     },
     "memory-stack-core": {
       "installed": true,
